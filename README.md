@@ -25,3 +25,10 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Mock de datos
+
+En la ruta src/mock se ubica el archivo softPymes.json, el cual nos sirve para simular la API con la cual realizaremos el consumo de datos de usuario y cuentas bancarias de la aplicación. Para poder simular este backend usaremos json-server y para ello seguiremos los siguientes pasos:
+
+1. Ejecutamos el comando npm install -g json-server
+2. Desde la ubicación del archivo .json (src/mock) abrimos una consola y ejecutamos el comando json-server --watch softPymes.json, por defecto nuestro archivo .json correra en el puerto 3000, de manera que accederemos a http://localhost:3000 para consumir los datos.
