@@ -7,3 +7,20 @@
 .buttons {
   background-color: #0a85c1;
 }
+
+.image-potato {
+  width: 500px;
+  height: 500px;
+}
+
+.eye_button {
+  border: 0;
+  background-color: transparent;
+  right: 0px;
+  position: absolute;
+}
+
+/* .validacion {
+  color: red;
+  font-size: 0.8rem;
+} */

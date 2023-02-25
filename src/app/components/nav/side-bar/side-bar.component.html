@@ -1,19 +1,11 @@
-<nav class="nav" [class.active]="activeMenu">
-  <div class="button-burger position-absolute">
-    <button
-      (click)="toggleMenu()"
-      class="button"
-      type="button"
-      [class.activeRotate]="activeMenu"
-    >
-      <i class="fa-solid fa-angle-right fa-2x"></i>
-    </button>
+<nav class="nav">
+  <div class="button-burger position-absolute">    
   </div>
 
   <div class="mx-auto">
     <div class="position-relative">
-      <div class="img-container mt-5 d-flex align-items-center justify-content-center">
-        <img src="../assets/images/logos/SP.jpg" alt="" />
+      <div class="mt-5 d-flex align-items-center justify-content-center">
+        <img class="img-container" src="../../../../assets/images/logos/potato.png" alt="" />
       </div>
       <div class="menu-content position-absolute">
         <h6>MENU</h6>
@@ -23,7 +15,7 @@
             <a
               class="d-flex"
               routerLink="/dashboard/home"
-              routerLinkActive="activo"
+              routerLinkActive="active"
             >
               <div class="iconos">
                 <i class="fa-solid fa-house"></i>
@@ -35,13 +27,13 @@
           <li class="">
             <a
               class="d-flex"
-              routerLink="/dashboard/cuentas"
-              routerLinkActive="activo"
+              routerLink="/dashboard/users"
+              routerLinkActive="active"
             >
               <div class="iconos">
                 <i class="fa-solid fa-money-check"></i>
               </div>
-              Cuentas</a
+              Users</a
             >
           </li>
         </ul>
