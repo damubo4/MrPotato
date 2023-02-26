@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { environment } from "@environments/environment";
 import { TokenService } from "@services/token/token.service";
 import { tap } from "rxjs/operators";
-import { User } from '../../models/auth.models'
+import { User } from '@models/auth.models'
 
 @Injectable({
   providedIn: "root",

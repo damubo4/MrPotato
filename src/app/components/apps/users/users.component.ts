@@ -15,7 +15,7 @@ import { Users } from "@models/users.model";
 })
 export class UsersComponent implements OnInit {
   displayedColumns: string[] = [
-    "No.",
+    "Item",
     "Activity",
     "Area",
     "ConnectionState",
@@ -36,7 +36,7 @@ export class UsersComponent implements OnInit {
     "SubscriptionMethod",
     "SubscriptionState",
     "SubscriptionStateDescription",
-    "Acciones",
+    "Actions",
   ];
   dataSourceUsers = new MatTableDataSource();
   usersList: any = [];
@@ -67,25 +67,25 @@ export class UsersComponent implements OnInit {
         this.dataSourceUsers = new MatTableDataSource(this.usersList);
         this.dataSourceUsers.paginator = this.paginator;
       },
-      error: (err) => {},
+      error: () => {},
     });
   }
 
   deleteUser(id: any) {
     const dialogRef = this.dialog.open(MensajeConfirmacionComponent, {
       width: "350px",
-      data: { mensaje: "Estas seguro de eliminar el usuario?" },
+      data: "",
     });
     dialogRef.afterClosed().subscribe((result) => {
-      if (result === "aceptar") {
+      if (result === "yes") {
         this._usersService.deleteUser(id).subscribe({
           next: () => {
             this.getUsers();
-            this.snackBar.open("El usuario ha sido eliminado con éxito", "", {
+            this.snackBar.openFromComponent(CustomSnackBarComponentUserDelete, {
               duration: 3000,
             });
           },
-          error: (err) => {},
+          error: () => {},
         });
       }
     });
@@ -96,3 +96,9 @@ export class UsersComponent implements OnInit {
     this.dataSourceUsers.filter = filterValue.trim().toLowerCase();
   }
 }
+
+@Component({
+  selector: "custom-snackbar-users-delete",
+  template: "<span>{{ 'userDelete' | translate }}</span>",
+})
+export class CustomSnackBarComponentUserDelete {}

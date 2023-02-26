@@ -14,7 +14,7 @@ import { Countries } from "@models/countries.models";
 export class AddEditUsersComponent implements OnInit {
   myForm: FormGroup;
   idUser: any;
-  action = "Add";
+  action: "Add" | "Edit" = "Add";
   countryCodes = [];
 
   constructor(
@@ -62,7 +62,7 @@ export class AddEditUsersComponent implements OnInit {
 
     if (this.idUser !== undefined) {
       this._usersService.editUser(this.idUser, USER).subscribe(() => {
-        this.snackBar.open("The user was successfully edited", "", {
+        this.snackBar.openFromComponent(CustomSnackBarComponentEdited, {
           duration: 3000,
         });
         this.route.navigate(["/dashboard/users"]);
@@ -73,7 +73,7 @@ export class AddEditUsersComponent implements OnInit {
     } else {
       delete USER.Id;
       this._usersService.addUser(USER).subscribe(() => {
-        this.snackBar.open("The user was successfully registered", "", {
+        this.snackBar.openFromComponent(CustomSnackBarComponentRegistered, {
           duration: 3000,
         });
         this.route.navigate(["/dashboard/users"]);
@@ -97,3 +97,16 @@ export class AddEditUsersComponent implements OnInit {
     });
   }
 }
+
+@Component({
+  selector: "custom-snackbar-registered",
+  template: "<span>{{ 'userRegistered' | translate }}</span>",
+})
+export class CustomSnackBarComponentRegistered {}
+
+@Component({
+  selector: "custom-snackbar-edited",
+  template: "<span>{{ 'userEdited' | translate }}</span>",
+})
+export class CustomSnackBarComponentEdited {}
+

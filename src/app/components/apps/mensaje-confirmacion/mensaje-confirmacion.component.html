@@ -1,9 +1,10 @@
-<h1 mat-dialog-title>Mensaje de confirmación</h1>
+<h1 mat-dialog-title>{{ "confirmMessage" | translate }}</h1>
 <div class="mensaje" mat-dialog-content>
-  <p>{{ mensaje }}</p>
-
+  <p>{{ 'confirmText' | translate }}</p>
 </div>
 <div class="d-flex justify-content-center" mat-dialog-actions>
-  <button color="warn" mat-button (click)="onNoClick()">Cancelar</button>
-  <button color="primary" mat-button [mat-dialog-close]="btn" cdkFocusInitial>Aceptar</button>
+  <button color="warn" mat-button (click)="onNoClick()">{{ "no" | translate }}</button>
+  <button color="primary" mat-button [mat-dialog-close]="btn" cdkFocusInitial>
+    {{ "yes" | translate }}
+  </button>
 </div>

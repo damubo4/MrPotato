@@ -1,11 +1,11 @@
 <div class="clientes_component">
   <div>
-    <h2 class="text-center">User list</h2>
+    <h2 class="text-center">{{ 'listUsers' | translate }}</h2>
   </div>
   <div class="row">
     <div class="col">
       <mat-form-field appearance="standard">
-        <mat-label>Find</mat-label>
+        <mat-label>{{ 'find' | translate }}</mat-label>
         <input
           autocomplete="off"
           matInput
@@ -21,10 +21,10 @@
         routerLink="/dashboard/users/addUser"
         mat-raised-button
       >
-        Add user
+      {{ 'addUserButton' | translate }}
       </button>
     </div>
-  </div> 
+  </div>
 
   <div *ngIf="spinner" class="spinner table-container">
     <div class="bounce1"></div>
@@ -34,8 +34,7 @@
 
   <div *ngIf="!spinner" class="my-table table-container">
     <table mat-table [dataSource]="dataSourceUsers" class="w-100" matSort>
-      
-      <ng-container class="me-3" matColumnDef="No.">
+      <ng-container class="me-3" matColumnDef="Item">
         <th mat-header-cell *matHeaderCellDef>No.</th>
         <td mat-cell *matCellDef="let i = index">{{ i + 1 }}</td>
       </ng-container>
@@ -54,7 +53,9 @@
 
       <ng-container class="me-3" matColumnDef="ConnectionState">
         <th mat-header-cell *matHeaderCellDef>ConnectionState</th>
-        <td mat-cell *matCellDef="let element">{{ element.ConnectionState }}</td>
+        <td mat-cell *matCellDef="let element">
+          {{ element.ConnectionState }}
+        </td>
       </ng-container>
 
       <ng-container class="me-3" matColumnDef="CountryCode">
@@ -89,12 +90,16 @@
 
       <ng-container class="me-3" matColumnDef="LastActivityString">
         <th mat-header-cell *matHeaderCellDef>LastActivityString</th>
-        <td mat-cell *matCellDef="let element">{{ element.LastActivityString }}</td>
+        <td mat-cell *matCellDef="let element">
+          {{ element.LastActivityString }}
+        </td>
       </ng-container>
 
       <ng-container class="me-3" matColumnDef="LastActivityUtc">
         <th mat-header-cell *matHeaderCellDef>LastActivityUtc</th>
-        <td mat-cell *matCellDef="let element">{{ element.LastActivityUtc }}</td>
+        <td mat-cell *matCellDef="let element">
+          {{ element.LastActivityUtc }}
+        </td>
       </ng-container>
 
       <ng-container class="me-3" matColumnDef="Name">
@@ -109,7 +114,9 @@
 
       <ng-container class="me-3" matColumnDef="PhoneCodeAndNumber">
         <th mat-header-cell *matHeaderCellDef>PhoneCodeAndNumber</th>
-        <td mat-cell *matCellDef="let element">{{ element.PhoneCodeAndNumber }}</td>
+        <td mat-cell *matCellDef="let element">
+          {{ element.PhoneCodeAndNumber }}
+        </td>
       </ng-container>
 
       <ng-container class="me-3" matColumnDef="PhoneNumber">
@@ -124,25 +131,33 @@
 
       <ng-container class="me-3" matColumnDef="SubscriptionDate">
         <th mat-header-cell *matHeaderCellDef>SubscriptionDate</th>
-        <td mat-cell *matCellDef="let element">{{ element.SubscriptionDate }}</td>
+        <td mat-cell *matCellDef="let element">
+          {{ element.SubscriptionDate }}
+        </td>
       </ng-container>
 
       <ng-container class="me-3" matColumnDef="SubscriptionMethod">
         <th mat-header-cell *matHeaderCellDef>SubscriptionMethod</th>
-        <td mat-cell *matCellDef="let element">{{ element.SubscriptionMethod }}</td>
+        <td mat-cell *matCellDef="let element">
+          {{ element.SubscriptionMethod }}
+        </td>
       </ng-container>
 
       <ng-container class="me-3" matColumnDef="SubscriptionState">
         <th mat-header-cell *matHeaderCellDef>SubscriptionState</th>
-        <td mat-cell *matCellDef="let element">{{ element.SubscriptionState }}</td>
+        <td mat-cell *matCellDef="let element">
+          {{ element.SubscriptionState }}
+        </td>
       </ng-container>
 
       <ng-container class="me-3" matColumnDef="SubscriptionStateDescription">
         <th mat-header-cell *matHeaderCellDef>SubscriptionStateDescription</th>
-        <td mat-cell *matCellDef="let element">{{ element.SubscriptionStateDescription }}</td>
+        <td mat-cell *matCellDef="let element">
+          {{ element.SubscriptionStateDescription }}
+        </td>
       </ng-container>
 
-      <ng-container class="me-3" matColumnDef="Acciones">
+      <ng-container class="me-3" matColumnDef="Actions">
         <th mat-header-cell *matHeaderCellDef>Acciones</th>
         <td mat-cell *matCellDef="let element">
           <a routerLink="editUser/{{ element.Id }}" href="" class="pointer">

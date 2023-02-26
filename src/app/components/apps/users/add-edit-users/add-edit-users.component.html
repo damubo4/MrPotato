@@ -1,9 +1,8 @@
 <div class="add-edit py-5">
   <div class="mb-5">
-    <h2 class="text-center">{{ action }} User</h2>
+    <h2 *ngIf="action == 'Edit'" class="text-center">{{ "editUser" | translate }}</h2>
+    <h2 *ngIf="action == 'Add'" class="text-center">{{ "addUser" | translate }}</h2>
   </div>
-
-  <!-- <pre> {{ myForm.value | json }}</pre> -->
 
   <div class="text-center">
     <form [formGroup]="myForm" class="row" autocomplete="off">

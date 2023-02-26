@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/app-travel-red",
+            "outputPath": "dist/AppPatata",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "AppTravelRed:build:production"
+              "browserTarget": "AppPatata:build:production"
             },
             "development": {
-              "browserTarget": "AppTravelRed:build:development"
+              "browserTarget": "AppPatata:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "AppTravelRed:build"
+            "browserTarget": "AppPatata:build"
           }
         },
         "test": {
@@ -107,5 +107,5 @@
       }
     }
   },
-  "defaultProject": "AppTravelRed"
+  "defaultProject": "AppPatata"
 }

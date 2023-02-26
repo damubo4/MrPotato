@@ -1,4 +1,13 @@
 <div class="row">
+  <div class="d-flex">
+    <span class="d-flex align-items-center me-1">
+      <i class="fa-solid fa-globe"></i>
+    </span>
+    <p class="d-flex m-0 me-2 align-items-center">
+      {{ "language" | translate }}
+    </p>
+    <app-switch-lang></app-switch-lang>
+  </div>
   <div
     class="login p-5 col-lg-8 position-absolute start-50 top-50 translate-middle"
   >
@@ -11,18 +20,18 @@
         />
       </div>
       <div class="col-lg-6 my-auto">
-        <h2 class="mb-5 text-center">Login</h2>
+        <h2 class="mb-5 text-center">{{ "loginTitle" | translate }}</h2>
         <form action="" [formGroup]="myForm">
           <div>
             <mat-form-field class="w-100" appearance="fill">
-              <mat-label>User Name</mat-label>
+              <mat-label>{{ "userInput" | translate }}</mat-label>
               <input
                 formControlName="log_name"
                 type="text"
                 matInput
                 placeholder=""
                 value=""
-              />              
+              />
             </mat-form-field>
           </div>
           <div>
@@ -30,7 +39,7 @@
               <button (click)="changeEyePass()" class="eye_button">
                 <i class="fa-solid fa-eye"></i>
               </button>
-              <mat-label>Password</mat-label>
+              <mat-label>{{ "passInput" | translate }}</mat-label>
               <input
                 formControlName="log_pass"
                 type="password"
@@ -39,11 +48,6 @@
                 value=""
                 [type]="type_input"
               />
-              <!-- <div class="validacion">
-                <span *ngIf="myForm.get('log_pass').invalid &&myForm.get('log_pass').touched">
-                  This field is mandatory
-                </span>
-              </div> -->
             </mat-form-field>
           </div>
           <button
@@ -52,7 +56,7 @@
             type="button"
             class="btn buttons px-4 btn-secondary w-100 mb-3"
           >
-            Login
+            {{ "buttonLogin" | translate }}
           </button>
         </form>
       </div>

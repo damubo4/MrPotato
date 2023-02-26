@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { Router } from "@angular/router";
@@ -9,11 +9,12 @@ import { AuthService } from "@services/auth/auth.service";
   templateUrl: "./login.component.html",
   styleUrls: ["./login.component.css"],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   myForm: FormGroup;
   isLogged: boolean = false;
   idLogin: number;
   type_input = "password";
+  loginError = "'loginError' | translate";
 
   constructor(
     private fb: FormBuilder,
@@ -27,10 +28,6 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
-
- 
-
   loginClient() {
     const LOGIN = {
       UserName: this.myForm.get("log_name").value,
@@ -38,13 +35,12 @@ export class LoginComponent implements OnInit {
     };
 
     this._authService.login(LOGIN).subscribe({
-      next: (data) => {       
+      next: () => {
         this.route.navigate(["/dashboard/home"]);
       },
       error: () => {
-        this.snackBar.open(
-          "El nombre de usuario o password son incorrectos",
-          "",
+        this.snackBar.openFromComponent(
+          CustomSnackBarComponentLogin,
           {
             duration: 3000,
           }
@@ -54,14 +50,18 @@ export class LoginComponent implements OnInit {
   }
 
   changeEyePass() {
-    if(this.type_input === "text"){
+    if (this.type_input === "text") {
       this.type_input = "password";
       return;
-    } 
-    if(this.type_input === "password"){
+    }
+    if (this.type_input === "password") {
       this.type_input = "text";
     }
   }
-
-
 }
+
+@Component({
+  selector: "custom-snackbar-login",
+  template: "<span>{{ 'loginError' | translate }}</span>",
+})
+export class CustomSnackBarComponentLogin {}
